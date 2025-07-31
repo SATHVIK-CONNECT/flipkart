@@ -9,14 +9,11 @@ function Signup() {
   const navigate = useNavigate();
   const handleSignup = async () => {
     setError("");
-    const res = await fetch(
-      "https://flipkart-backend-1-pjtm.onrender.com/auth/signup",
-      {
-        method: "POST",
-        body: JSON.stringify({ email, password }),
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+    const res = await fetch("https://flipkart-backend-q9yh.onrender.com/auth/signup", {
+      method: "POST",
+      body: JSON.stringify({ email, password }),
+      headers: { "Content-Type": "application/json" },
+    });
     const data = await res.json();
     if (data.token) {
       localStorage.setItem("token", data.token);
@@ -50,13 +47,7 @@ function Signup() {
           {error}
         </Box>
       )}
-      <Button
-        onClick={handleSignup}
-        variant="contained"
-        color="primary"
-        fullWidth
-        sx={{ mt: 2 }}
-      >
+      <Button onClick={handleSignup} variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>
         Sign Up
       </Button>
       <Box mt={2} textAlign="center">

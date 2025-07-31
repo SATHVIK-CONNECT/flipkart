@@ -10,7 +10,7 @@ function Search() {
   const query = useQuery().get("q") || "";
 
   useEffect(() => {
-    fetch("https://flipkart-backend-1-pjtm.onrender.com/products")
+    fetch("https://flipkart-backend-q9yh.onrender.com/products")
       .then((res) => res.json())
       .then((data) => {
         // Flatten if needed
@@ -42,9 +42,7 @@ function Search() {
       <h2 className="text-2xl font-bold mb-6">Search Results for "{query}"</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filtered.length === 0 && (
-          <div className="col-span-full text-center text-gray-500">
-            No products found.
-          </div>
+          <div className="col-span-full text-center text-gray-500">No products found.</div>
         )}
         {filtered.map((product) => (
           <div
@@ -63,9 +61,7 @@ function Search() {
               {product.description}
             </div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-blue-600 font-bold text-lg">
-                ₹{product.price}
-              </span>
+              <span className="text-blue-600 font-bold text-lg">₹{product.price}</span>
               <span className="text-green-600 font-semibold text-xs">
                 {product.discountPercentage}% off
               </span>
@@ -74,16 +70,10 @@ function Search() {
               <span className="bg-green-600 text-white text-xs font-semibold px-2 py-0.5 rounded mr-2">
                 {product.rating} ★
               </span>
-              <span className="text-xs text-gray-500">
-                Stock: {product.stock}
-              </span>
+              <span className="text-xs text-gray-500">Stock: {product.stock}</span>
             </div>
-            <div className="text-xs text-gray-500 mb-1">
-              Brand: {product.brand}
-            </div>
-            <div className="text-xs text-gray-500 mb-1">
-              Category: {product.category}
-            </div>
+            <div className="text-xs text-gray-500 mb-1">Brand: {product.brand}</div>
+            <div className="text-xs text-gray-500 mb-1">Category: {product.category}</div>
           </div>
         ))}
       </div>

@@ -15,9 +15,7 @@ function Profile() {
             </div>
             <div>
               <div className="text-gray-500 text-sm">Hello,</div>
-              <div className="font-semibold text-lg text-gray-800">
-                Anshul Ojha
-              </div>
+              <div className="font-semibold text-lg text-gray-800">Sathvik Palivela</div>
             </div>
           </div>
           {/* Navigation */}
@@ -29,9 +27,7 @@ function Profile() {
               </div>
             </div>
             <div className="mb-4">
-              <div className="text-gray-400 font-semibold mb-2">
-                ACCOUNT SETTINGS
-              </div>
+              <div className="text-gray-400 font-semibold mb-2">ACCOUNT SETTINGS</div>
               <ul className="ml-2">
                 <li className="text-blue-600 font-semibold bg-blue-50 rounded px-2 py-1 mb-1">
                   Profile Information
@@ -48,8 +44,7 @@ function Profile() {
               <div className="text-gray-400 font-semibold mb-2">PAYMENTS</div>
               <ul className="ml-2">
                 <li className="text-gray-700 px-2 py-1 mb-1 cursor-pointer hover:bg-gray-100 rounded flex items-center justify-between">
-                  Gift Cards{" "}
-                  <span className="text-green-600 font-semibold">₹0</span>
+                  Gift Cards <span className="text-green-600 font-semibold">₹0</span>
                 </li>
                 <li className="text-gray-700 px-2 py-1 mb-1 cursor-pointer hover:bg-gray-100 rounded">
                   Saved UPI
@@ -75,20 +70,18 @@ function Profile() {
           {/* Personal Information */}
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-semibold">Personal Information</h2>
-            <button className="text-blue-600 font-semibold text-sm">
-              Edit
-            </button>
+            <button className="text-blue-600 font-semibold text-sm">Edit</button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <input
               type="text"
-              value="Anshul"
+              value="Sathvik"
               readOnly
               className="border rounded px-3 py-2 bg-gray-100"
             />
             <input
               type="text"
-              value="Ojha"
+              value="Palivela"
               readOnly
               className="border rounded px-3 py-2 bg-gray-100"
             />
@@ -106,9 +99,7 @@ function Profile() {
           {/* Email Address */}
           <div className="flex items-center justify-between mb-2 mt-8">
             <h3 className="text-lg font-semibold">Email Address</h3>
-            <button className="text-blue-600 font-semibold text-sm">
-              Edit
-            </button>
+            <button className="text-blue-600 font-semibold text-sm">Edit</button>
           </div>
           <input
             type="text"
@@ -120,9 +111,7 @@ function Profile() {
           {/* Mobile Number */}
           <div className="flex items-center justify-between mb-2 mt-8">
             <h3 className="text-lg font-semibold">Mobile Number</h3>
-            <button className="text-blue-600 font-semibold text-sm">
-              Edit
-            </button>
+            <button className="text-blue-600 font-semibold text-sm">Edit</button>
           </div>
           <input
             type="text"

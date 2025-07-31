@@ -64,9 +64,7 @@ const Navbar = () => {
       <div className="flex items-center px-8 pt-2 pb-0 justify-between">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
-            <span className="text-2xl font-extrabold text-blue-600">
-              Flipkart
-            </span>
+            <span className="text-2xl font-extrabold text-blue-600">Flipkart</span>
             <span className="text-xs text-gray-500 ml-2">
               Explore <span className="text-yellow-400 font-bold">Plus</span>{" "}
               <span className="text-yellow-400 text-sm">★</span>
@@ -92,10 +90,7 @@ const Navbar = () => {
           </button>
         </form>
         <div className="flex items-center gap-6">
-          <Link
-            to="/cart"
-            className="relative font-medium cursor-pointer flex items-center"
-          >
+          <Link to="/cart" className="relative font-medium cursor-pointer flex items-center">
             <span className="text-xl mr-1">🛒</span> Cart
             <span className="absolute -top-2 -right-4 bg-red-500 text-white rounded-full px-2 text-xs">
               1
@@ -114,7 +109,7 @@ const Navbar = () => {
           >
             <span className="flex items-center gap-1">
               <span className="text-lg">👤</span>
-              <span className="text-blue-700">Anshul</span>
+              <span className="text-blue-700">Sathvik</span>
               <span className="text-xs">▼</span>
             </span>
             {userMenuOpen && (
@@ -160,9 +155,7 @@ const Navbar = () => {
             key={cat.name}
           >
             <div className="text-3xl mb-1">{cat.icon}</div>
-            <div className="text-sm font-medium text-gray-800 hover:text-blue-600">
-              {cat.name}
-            </div>
+            <div className="text-sm font-medium text-gray-800 hover:text-blue-600">{cat.name}</div>
           </Link>
         ))}
       </div>

@@ -7,14 +7,7 @@ import {
   useLocation,
   Navigate,
 } from "react-router-dom";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  Container,
-  Box,
-} from "@mui/material";
+import { AppBar, Toolbar, Typography, Button, Container, Box } from "@mui/material";
 import Search from "./Search";
 import Login from "./Login";
 import Signup from "./Signup";
@@ -90,9 +83,7 @@ function AppContent({ products }) {
 
   return (
     <>
-      {location.pathname !== "/login" && location.pathname !== "/signup" && (
-        <Navbar />
-      )}
+      {location.pathname !== "/login" && location.pathname !== "/signup" && <Navbar />}
       <Container sx={{ mt: 4 }}>
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -111,117 +102,105 @@ function AppContent({ products }) {
                       productsByCategory[cat.value] &&
                       productsByCategory[cat.value].length > 0 && (
                         <div key={cat.value} className="mb-12">
-                          <h2 className="text-2xl font-bold mb-6 text-gray-800">
-                            {cat.label}
-                          </h2>
+                          <h2 className="text-2xl font-bold mb-6 text-gray-800">{cat.label}</h2>
                           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                            {productsByCategory[cat.value].map(
-                              (product, idx) => (
-                                <div
-                                  key={product.id || idx}
-                                  className="bg-white rounded-lg shadow p-4 flex flex-col items-start"
-                                >
-                                  <img
-                                    src={product.thumbnail}
-                                    alt={product.title}
-                                    className="w-full h-40 object-contain mb-3 rounded"
-                                  />
-                                  <div className="font-semibold text-base mb-1 line-clamp-2 min-h-[48px]">
-                                    {product.title}
-                                  </div>
-                                  <div className="text-gray-600 text-sm mb-1 line-clamp-2 min-h-[32px]">
-                                    {product.description}
-                                  </div>
-                                  <div className="flex items-center gap-2 mb-1">
-                                    <span className="text-blue-600 font-bold text-lg">
-                                      ₹{product.price}
-                                    </span>
-                                    {product.discountPercentage && (
-                                      <span className="text-green-600 font-semibold text-xs">
-                                        {product.discountPercentage}% off
-                                      </span>
-                                    )}
-                                  </div>
-                                  <div className="flex items-center mb-1">
-                                    <span className="bg-green-600 text-white text-xs font-semibold px-2 py-0.5 rounded mr-2">
-                                      {product.rating} ★
-                                    </span>
-                                    <span className="text-xs text-gray-500">
-                                      Stock: {product.stock}
-                                    </span>
-                                  </div>
-                                  <div className="text-xs text-gray-500 mb-1">
-                                    Brand: {product.brand}
-                                  </div>
-                                  {/* Add to Cart and Buy Now Buttons */}
-                                  <div className="flex gap-2 mt-2 w-full">
-                                    <button
-                                      className="flex-1 px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
-                                      onClick={() => {
-                                        fetch(
-                                          "https://flipkart-backend-1-pjtm.onrender.com/cart/add",
-                                          {
-                                            method: "POST",
-                                            headers: {
-                                              "Content-Type":
-                                                "application/json",
-                                            },
-                                            body: JSON.stringify({
-                                              ...product,
-                                              productId: product.id,
-                                              quantity: 1,
-                                              user: 2, // Replace with actual user id if available
-                                              id: product.id,
-                                            }),
-                                          }
-                                        )
-                                          .then((res) => res.json())
-                                          .then((data) => {
-                                            alert("Added to cart!");
-                                          })
-                                          .catch((err) => {
-                                            alert("Failed to add to cart");
-                                          });
-                                      }}
-                                    >
-                                      Add to Cart
-                                    </button>
-                                    <button
-                                      className="flex-1 px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700"
-                                      onClick={() => {
-                                        // Buy Now: Add to cart, then navigate to cart
-                                        fetch(
-                                          "https://flipkart-backend-1-pjtm.onrender.com/cart/add",
-                                          {
-                                            method: "POST",
-                                            headers: {
-                                              "Content-Type":
-                                                "application/json",
-                                            },
-                                            body: JSON.stringify({
-                                              ...product,
-                                              productId: product.id,
-                                              quantity: 1,
-                                              user: 2, // Replace with actual user id if available
-                                              id: product.id,
-                                            }),
-                                          }
-                                        )
-                                          .then((res) => res.json())
-                                          .then((data) => {
-                                            window.location.href = "/cart";
-                                          })
-                                          .catch((err) => {
-                                            alert("Failed to add to cart");
-                                          });
-                                      }}
-                                    >
-                                      Buy Now
-                                    </button>
-                                  </div>
+                            {productsByCategory[cat.value].map((product, idx) => (
+                              <div
+                                key={product.id || idx}
+                                className="bg-white rounded-lg shadow p-4 flex flex-col items-start"
+                              >
+                                <img
+                                  src={product.thumbnail}
+                                  alt={product.title}
+                                  className="w-full h-40 object-contain mb-3 rounded"
+                                />
+                                <div className="font-semibold text-base mb-1 line-clamp-2 min-h-[48px]">
+                                  {product.title}
                                 </div>
-                              )
-                            )}
+                                <div className="text-gray-600 text-sm mb-1 line-clamp-2 min-h-[32px]">
+                                  {product.description}
+                                </div>
+                                <div className="flex items-center gap-2 mb-1">
+                                  <span className="text-blue-600 font-bold text-lg">
+                                    ₹{product.price}
+                                  </span>
+                                  {product.discountPercentage && (
+                                    <span className="text-green-600 font-semibold text-xs">
+                                      {product.discountPercentage}% off
+                                    </span>
+                                  )}
+                                </div>
+                                <div className="flex items-center mb-1">
+                                  <span className="bg-green-600 text-white text-xs font-semibold px-2 py-0.5 rounded mr-2">
+                                    {product.rating} ★
+                                  </span>
+                                  <span className="text-xs text-gray-500">
+                                    Stock: {product.stock}
+                                  </span>
+                                </div>
+                                <div className="text-xs text-gray-500 mb-1">
+                                  Brand: {product.brand}
+                                </div>
+                                {/* Add to Cart and Buy Now Buttons */}
+                                <div className="flex gap-2 mt-2 w-full">
+                                  <button
+                                    className="flex-1 px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
+                                    onClick={() => {
+                                      fetch("https://flipkart-backend-q9yh.onrender.com/cart/add", {
+                                        method: "POST",
+                                        headers: {
+                                          "Content-Type": "application/json",
+                                        },
+                                        body: JSON.stringify({
+                                          ...product,
+                                          productId: product.id,
+                                          quantity: 1,
+                                          user: 2, // Replace with actual user id if available
+                                          id: product.id,
+                                        }),
+                                      })
+                                        .then((res) => res.json())
+                                        .then((data) => {
+                                          alert("Added to cart!");
+                                        })
+                                        .catch((err) => {
+                                          alert("Failed to add to cart");
+                                        });
+                                    }}
+                                  >
+                                    Add to Cart
+                                  </button>
+                                  <button
+                                    className="flex-1 px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700"
+                                    onClick={() => {
+                                      // Buy Now: Add to cart, then navigate to cart
+                                      fetch("https://flipkart-backend-q9yh.onrender.com/cart/add", {
+                                        method: "POST",
+                                        headers: {
+                                          "Content-Type": "application/json",
+                                        },
+                                        body: JSON.stringify({
+                                          ...product,
+                                          productId: product.id,
+                                          quantity: 1,
+                                          user: 2, // Replace with actual user id if available
+                                          id: product.id,
+                                        }),
+                                      })
+                                        .then((res) => res.json())
+                                        .then((data) => {
+                                          window.location.href = "/cart";
+                                        })
+                                        .catch((err) => {
+                                          alert("Failed to add to cart");
+                                        });
+                                    }}
+                                  >
+                                    Buy Now
+                                  </button>
+                                </div>
+                              </div>
+                            ))}
                           </div>
                         </div>
                       )
@@ -255,7 +234,7 @@ function AppContent({ products }) {
 function App() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("https://flipkart-backend-1-pjtm.onrender.com/products")
+    fetch("https://flipkart-backend-q9yh.onrender.com/products")
       .then((res) => res.json())
       .then((data) => {
         // If data is an array of objects with products arrays, flatten them
